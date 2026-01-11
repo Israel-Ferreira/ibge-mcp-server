@@ -27,6 +27,13 @@ async def get_all_states_of_brazil():
     return states
 
 
+@mcp.tool(
+    name="get_cities_of_state",
+    description="Retorna todas as cidades de um estado da API do IBGE",
+)
+async def get_cities_of_state(state_acronym: str):
+    cities = await ibge_localidades_service.get_cities_of_state(state_acronym)
+    return cities
 
 
 if __name__ == "__main__":
